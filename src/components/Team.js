@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Team = () => {
   return (
@@ -8,7 +9,7 @@ const Team = () => {
         <div className="team-members">
           <div className="team-member">
             <div className="member-photo">
-              <img src="https://picsum.photos/400/400?grayscale" alt="Rishabh" />
+              <Image src="https://picsum.photos/400/400?grayscale" alt="Rishabh" width={400} height={400} />
             </div>
             <div className="member-info">
               <h3>Rishabh</h3>
@@ -18,7 +19,7 @@ const Team = () => {
           </div>
           <div className="team-member">
             <div className="member-photo">
-              <img src="https://picsum.photos/400/400?grayscale" alt="Shubham" />
+              <Image src="https://picsum.photos/400/400?grayscale" alt="Shubham" width={400} height={400} />
             </div>
             <div className="member-info">
               <h3>Shubham</h3>

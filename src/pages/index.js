@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { motion } from 'framer-motion'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Services from '../components/Services'

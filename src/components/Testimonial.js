@@ -9,8 +9,8 @@ const Testimonial = () => {
           <div className="testimonial-card">
             <div className="quote-icon">❝</div>
             <p className="testimonial-text">
-              "BROFIED transformed our brand with stunning visuals that captured our 
-              essence perfectly. Their cinematic approach elevated our product launch."
+              &quot;BROFIED transformed our brand with stunning visuals that captured our 
+              essence perfectly. Their cinematic approach elevated our product launch.&quot;
             </p>
             <div className="client-info">
               <h3>Alex Morgan</h3>
@@ -21,8 +21,8 @@ const Testimonial = () => {
           <div className="testimonial-card">
             <div className="quote-icon">❝</div>
             <p className="testimonial-text">
-              "Working with BROFIED was a game-changer. Their music video captured 
-              the emotion of our song in ways we never imagined possible."
+              &quot;Working with BROFIED was a game-changer. Their music video captured 
+              the emotion of our song in ways we never imagined possible.&quot;
             </p>
             <div className="client-info">
               <h3>Sarah Johnson</h3>

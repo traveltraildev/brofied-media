@@ -66,7 +66,7 @@ export default function Contact() {
             READY FOR YOUR CLOSE-UP?
           </h2>
           <p className="text-xl max-w-2xl mx-auto">
-            Let's create your industry-defining story together
+            Let&apos;s create your industry-defining story together
           </p>
         </motion.div>
         
@@ -160,7 +160,7 @@ export default function Contact() {
               
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-900/30 border border-green-500 text-green-300">
-                  Thank you! Your message has been sent. We'll contact you soon.
+                  Thank you! Your message has been sent. We&apos;ll contact you soon.
                 </div>
               )}
               
