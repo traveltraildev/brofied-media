@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiFilter, FiX, FiPlay } from 'react-icons/fi'
+import { FiX, FiPlay } from 'react-icons/fi'
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all')

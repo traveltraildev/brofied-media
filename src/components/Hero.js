@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FiPlay } from 'react-icons/fi'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -7,10 +8,13 @@ export default function Hero() {
   {/* Video Background */}
   <div className="absolute inset-0 z-0">
     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10" />
-    <img
+    <Image
       src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop"
       alt="Cinematic hero"
+      fill
       className="w-full h-full object-cover scale-105 animate-[scale_20s_ease-in-out_infinite_alternate]"
+      style={{ objectFit: 'cover' }}
+      priority
     />
   </div>
 
