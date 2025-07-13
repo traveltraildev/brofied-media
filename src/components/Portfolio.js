@@ -20,42 +20,42 @@ export default function Portfolio() {
       title: 'Product Launch', 
       category: 'commercial', 
       client: 'Manufacturing Client',
-      image: '/images/portfolio1.jpg'
+      image: 'https://picsum.photos/536/354'
     },
     { 
       id: 2, 
       title: 'Music Video', 
       category: 'music', 
       client: 'Independent Artist',
-      image: '/images/portfolio2.jpg'
+      image: 'https://picsum.photos/536/354'
     },
     { 
       id: 3, 
       title: 'Corporate Event', 
       category: 'events', 
       client: 'Tech Company',
-      image: '/images/portfolio3.jpg'
+      image: 'https://picsum.photos/536/354'
     },
     { 
       id: 4, 
       title: 'Brand Animation', 
       category: 'animation', 
       client: 'Startup Company',
-      image: '/images/portfolio4.jpg'
+      image: 'https://picsum.photos/536/354'
     },
     { 
       id: 5, 
       title: 'Wedding Film', 
       category: 'events', 
       client: 'Private Client',
-      image: '/images/portfolio5.jpg'
+      image: 'https://picsum.photos/536/354'
     },
     { 
       id: 6, 
       title: 'Product Commercial', 
       category: 'commercial', 
       client: 'Consumer Brand',
-      image: '/images/portfolio6.jpg'
+      image: 'https://picsum.photos/536/354'
     },
   ]
 
@@ -99,7 +99,7 @@ export default function Portfolio() {
         </div>
         
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -107,7 +107,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group overflow-hidden cursor-pointer"
+              className="relative group overflow-hidden cursor-pointer glass shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-white/10"
               onClick={() => setSelectedProject(project)}
             >
               <div className="aspect-video bg-gray-800 overflow-hidden">
@@ -117,13 +117,13 @@ export default function Portfolio() {
                 ></div>
               </div>
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                <p className="text-red-500">{project.client}</p>
+                <h3 className="text-2xl font-bold mb-1 text-white drop-shadow-lg">{project.title}</h3>
+                <p className="text-red-400 font-semibold">{project.client}</p>
                 <div className="mt-4 flex items-center">
-                  <span className="text-sm bg-gray-800 px-3 py-1 rounded-full">
+                  <span className="text-sm bg-gray-800/80 px-3 py-1 rounded-full text-white">
                     {filters.find(f => f.id === project.category)?.name}
                   </span>
-                  <span className="ml-auto text-sm flex items-center">
+                  <span className="ml-auto text-sm flex items-center text-gray-200">
                     <FiFilter className="mr-1" /> View Details
                   </span>
                 </div>

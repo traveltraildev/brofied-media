@@ -25,81 +25,21 @@ export default function Header() {
   ]
 
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' 
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <motion.a 
-          href="#home" 
-          className="text-3xl font-bold"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-white">BRO</span>
-          <span className="text-red-500">FIED</span>
-        </motion.a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {navLinks.map((link, index) => (
-              <motion.li 
-                key={link.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <a 
-                  href={link.href} 
-                  className="text-white hover:text-red-500 transition-colors duration-300 text-lg"
-                >
-                  {link.name}
-                </a>
-              </motion.li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white z-50"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            className="md:hidden fixed inset-0 bg-black z-40"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="flex flex-col items-center justify-center h-full space-y-8">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href} 
-                    className="text-white text-2xl hover:text-red-500 transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <header className="fixed top-0 left-0 w-full z-50 glass shadow-lg backdrop-blur-lg border-b border-white/10">
+      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="text-2xl font-bold tracking-widest text-white drop-shadow-lg">
+          BROFIED <span className="text-red-500">MEDIA</span>
+        </div>
+        <ul className="flex space-x-8 text-lg font-semibold">
+          {navLinks.map(link => (
+            <li key={link.name}>
+              <a href={link.href} className="hover:text-red-400 transition-colors duration-200 focus:outline-none focus:text-red-500">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   )
 }
