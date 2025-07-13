@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FiFilter, FiX } from 'react-icons/fi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiFilter, FiX, FiPlay } from 'react-icons/fi'
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -15,57 +15,66 @@ export default function Portfolio() {
   ]
 
   const projects = [
-    { 
-      id: 1, 
-      title: 'Product Launch', 
-      category: 'commercial', 
+    {
+      id: 1,
+      title: 'Product Launch',
+      category: 'commercial',
       client: 'Manufacturing Client',
-      image: 'https://picsum.photos/536/354'
+      // YouTube placeholder
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
-    { 
-      id: 2, 
-      title: 'Music Video', 
-      category: 'music', 
+    {
+      id: 2,
+      title: 'Music Video',
+      category: 'music',
       client: 'Independent Artist',
-      image: 'https://picsum.photos/536/354'
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
-    { 
-      id: 3, 
-      title: 'Corporate Event', 
-      category: 'events', 
+    {
+      id: 3,
+      title: 'Corporate Event',
+      category: 'events',
       client: 'Tech Company',
-      image: 'https://picsum.photos/536/354'
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
-    { 
-      id: 4, 
-      title: 'Brand Animation', 
-      category: 'animation', 
+    {
+      id: 4,
+      title: 'Brand Animation',
+      category: 'animation',
       client: 'Startup Company',
-      image: 'https://picsum.photos/536/354'
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
-    { 
-      id: 5, 
-      title: 'Wedding Film', 
-      category: 'events', 
+    {
+      id: 5,
+      title: 'Wedding Film',
+      category: 'events',
       client: 'Private Client',
-      image: 'https://picsum.photos/536/354'
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
-    { 
-      id: 6, 
-      title: 'Product Commercial', 
-      category: 'commercial', 
+    {
+      id: 6,
+      title: 'Product Commercial',
+      category: 'commercial',
       client: 'Consumer Brand',
-      image: 'https://picsum.photos/536/354'
+      videoId: '1xoLd4tyxRQ',
+      thumb: 'https://picsum.photos/536/354',
     },
   ]
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter)
+  const filteredProjects =
+    activeFilter === 'all'
+      ? projects
+      : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <section id="portfolio" className="py-20 bg-black">
+    <section id="portfolio" className="py-20 bg-brand-black">
       <div className="container mx-auto px-4">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,107 +82,125 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 cinematic-border inline-block pb-4">
-            PROJECTS THAT SPEAK FRAMES
+          <h2 className="font-heading text-5xl md:text-6xl mb-4 cinematic-border inline-block pb-4">
+            Projects That Speak Frames
           </h2>
-          <p className="text-xl max-w-2xl mx-auto">
-            Our portfolio showcases the cinematic excellence we bring to every project
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Our portfolio showcases the cinematic excellence we bring to every
+            project.
           </p>
         </motion.div>
-        
-        {/* Portfolio Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {filters.map(filter => (
+
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {filters.map((f) => (
             <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-2 text-lg uppercase tracking-wider transition-colors ${
-                activeFilter === filter.id
-                  ? 'bg-red-500 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className={`px-5 py-2 text-sm uppercase tracking-widest rounded-full transition-all duration-300 ${
+                activeFilter === f.id
+                  ? 'bg-brand-red text-white shadow-lg shadow-brand-red/40'
+                  : 'bg-brand-gray-800 text-gray-300 hover:bg-brand-gray-700'
               }`}
             >
-              {filter.name}
+              {f.name}
             </button>
           ))}
         </div>
-        
-        {/* Portfolio Grid */}
+
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((p, i) => (
             <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={p.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group overflow-hidden cursor-pointer glass shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-white/10"
-              onClick={() => setSelectedProject(project)}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative aspect-video overflow-hidden rounded-lg border border-brand-gray-800 hover:border-brand-red transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedProject(p)}
             >
-              <div className="aspect-video bg-gray-800 overflow-hidden">
-                <div 
-                  className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                ></div>
+              {/* Thumbnail */}
+              <div
+                className="absolute inset-0 bg-cover bg-center scale-100 group-hover:scale-110 transition-transform duration-700"
+                style={{ backgroundImage: `url(${p.thumb})` }}
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Info */}
+              <div className="absolute bottom-0 left-0 p-6 text-white translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="font-heading text-2xl">{p.title}</h3>
+                <p className="text-brand-red-light text-sm mt-1">{p.client}</p>
               </div>
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                <h3 className="text-2xl font-bold mb-1 text-white drop-shadow-lg">{project.title}</h3>
-                <p className="text-red-400 font-semibold">{project.client}</p>
-                <div className="mt-4 flex items-center">
-                  <span className="text-sm bg-gray-800/80 px-3 py-1 rounded-full text-white">
-                    {filters.find(f => f.id === project.category)?.name}
-                  </span>
-                  <span className="ml-auto text-sm flex items-center text-gray-200">
-                    <FiFilter className="mr-1" /> View Details
-                  </span>
-                </div>
+
+              {/* Play icon on hover */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <FiPlay size={60} className="text-white drop-shadow-2xl" />
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-      
-      {/* Project Modal */}
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="relative bg-gray-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <button 
-              className="absolute top-4 right-4 text-white text-2xl z-10"
-              onClick={() => setSelectedProject(null)}
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative bg-brand-gray-900 max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
             >
-              <FiX />
-            </button>
-            <div className="aspect-video bg-gray-800">
-              <div 
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${selectedProject.image})` }}
-              ></div>
-            </div>
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className="text-3xl font-bold mb-2">{selectedProject.title}</h3>
-                  <p className="text-red-500 text-lg">{selectedProject.client}</p>
+              {/* Close */}
+              <button
+                className="absolute top-4 right-4 text-white z-20"
+                onClick={() => setSelectedProject(null)}
+              >
+                <FiX size={28} />
+              </button>
+
+              {/* Video */}
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${selectedProject.videoId}?autoplay=1&rel=0`}
+                  title={selectedProject.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Details */}
+              <div className="p-6 md:p-8">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="font-heading text-3xl">{selectedProject.title}</h3>
+                    <p className="text-brand-red-light mt-1">{selectedProject.client}</p>
+                  </div>
+                  <span className="bg-brand-gray-800 px-3 py-1 rounded-full text-sm">
+                    {filters.find((f) => f.id === selectedProject.category)?.name}
+                  </span>
                 </div>
-                <span className="bg-gray-800 px-4 py-1 rounded-full text-sm">
-                  {filters.find(f => f.id === selectedProject.category)?.name}
-                </span>
+                <p className="text-gray-300">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat.
+                </p>
               </div>
-              <p className="text-gray-300 mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="px-6 py-3 bg-red-500 hover:bg-red-600 transition-colors">
-                  View Full Project
-                </button>
-                <button className="px-6 py-3 border border-white hover:bg-white hover:text-black transition-colors">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

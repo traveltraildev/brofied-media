@@ -3,75 +3,60 @@ import { FiPlay } from 'react-icons/fi'
 
 export default function Hero() {
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+   <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+  {/* Video Background */}
+  <div className="absolute inset-0 z-0">
+    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10" />
+    <img
+      src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop"
+      alt="Cinematic hero"
+      className="w-full h-full object-cover scale-105 animate-[scale_20s_ease-in-out_infinite_alternate]"
+    />
+  </div>
+
+  <div className="relative z-20 text-center max-w-5xl mx-auto px-6">
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: 'easeOut' }}
+      className="font-heading text-6xl md:text-8xl lg:text-9xl text-white drop-shadow-2xl"
     >
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/70 z-10"></div>
-        <img 
-          src="https://picsum.photos/536/354" 
-          alt="Hero Placeholder" 
-          className="w-full h-full object-cover" 
-        />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10 text-center glass py-16 shadow-2xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(90deg, #ff2a2a, #ff6b6b)'}}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            <span className="block">WHERE VISIONS BECOME</span>
-            <span className="block mt-2">CINEMATIC REALITY</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-gray-200"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            Bold video production & brand storytelling for music, events, and industry leaders.
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-          >
-            <a 
-              href="#portfolio" 
-              className="btn-primary inline-flex items-center group"
-            >
-              <FiPlay className="mr-2 group-hover:animate-pulse" />
-              WATCH OUR REEL
-            </a>
-          </motion.div>
-        </motion.div>
-      </div>
-      
-      {/* Scrolling Indicator */}
-      <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
-      >
-        <div className="w-8 h-12 rounded-full border-2 border-white flex items-start justify-center p-2">
-          <motion.div 
-            className="w-2 h-2 bg-white rounded-full"
-            animate={{ y: [0, 8] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          />
-        </div>
-      </motion.div>
-    </section>
+      Where Visions Become
+      <span className="block text-brand-red">Cinematic Reality</span>
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: .4, duration: .8 }}
+      className="mt-6 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
+    >
+      Bold video production & brand storytelling for music, events, and industry leaders.
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, scale: .9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: .8, duration: .6 }}
+      className="mt-10"
+    >
+      <a href="#portfolio" className="btn-primary">
+        <FiPlay className="mr-2" />
+        Watch our reel
+      </a>
+    </motion.div>
+  </div>
+
+  {/* Scroll hint */}
+  <motion.div
+    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+    animate={{ y: [0, 10, 0] }}
+    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+  >
+    <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+      <div className="w-1 h-3 bg-white rounded-full" />
+    </div>
+  </motion.div>
+</section>
   )
 }
