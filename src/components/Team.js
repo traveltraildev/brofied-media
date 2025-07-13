@@ -13,7 +13,7 @@ const Team = () => {
             <div className="member-info">
               <h3>Rishabh</h3>
               <p>Creative Director</p>
-              <p>"We don't just make videos - we engineer emotional experiences."</p>
+              <p>&quot;We don&apos;t just make videos - we engineer emotional experiences.&quot;</p>
             </div>
           </div>
           <div className="team-member">
@@ -23,7 +23,7 @@ const Team = () => {
             <div className="member-info">
               <h3>Shubham</h3>
               <p>Technical Director</p>
-              <p>"8 years, 150+ projects, 25TB of raw passion."</p>
+              <p>&quot;8 years, 150+ projects, 25TB of raw passion.&quot;</p>
             </div>
           </div>
         </div>
