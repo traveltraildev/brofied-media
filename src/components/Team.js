@@ -1,0 +1,35 @@
+import React from 'react';
+
+const Team = () => {
+  return (
+    <section className="team" id="team">
+      <div className="container">
+        <h2 className="section-title">DIRECTORS OF THE FRAME</h2>
+        <div className="team-members">
+          <div className="team-member">
+            <div className="member-photo">
+              <img src="https://picsum.photos/400/400?grayscale" alt="Rishabh" />
+            </div>
+            <div className="member-info">
+              <h3>Rishabh</h3>
+              <p>Creative Director</p>
+              <p>"We don't just make videos - we engineer emotional experiences."</p>
+            </div>
+          </div>
+          <div className="team-member">
+            <div className="member-photo">
+              <img src="https://picsum.photos/400/400?grayscale" alt="Shubham" />
+            </div>
+            <div className="member-info">
+              <h3>Shubham</h3>
+              <p>Technical Director</p>
+              <p>"8 years, 150+ projects, 25TB of raw passion."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Team;
